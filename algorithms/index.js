@@ -1,1 +1,0 @@
-export { deleteNode } from './delete-node-from-linked-list'
