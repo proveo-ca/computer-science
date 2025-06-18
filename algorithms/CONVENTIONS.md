@@ -10,14 +10,14 @@ This document outlines the process for converting LeetCode-style problem descrip
    - All code is expected to be in JavaScript. Encapsulate snippets, or values and variable references in backticks "`".
    - Maintain all the original information including examples, constraints, and follow-up questions.
 
-2. **Create a JavaScript file with the same base name**:
+2. **Write a TypeScript template file with the same base name**:
    - Define the function signature with JSDoc comments.
    - Include parameter types and return type.
    - Leave the function body empty. DO NOT SOLVE IT.
    - Add a hint for the solution; identify the needed algorithm and move the .md and the .js into the algorithm's folder (if multiple algorithms solve the problem, choose the algorithm with the optimal solution), and include a verified link to geeksforgeeks.org, e.g:
       > `// https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/`
 
-3. **Write unit tests**:
+3. **Write a unit test file with the same base name (123-problem-name.spec.ts)**:
    - Create at least 5 test cases:
      - 1 simple example from the problem description.
      - 4 boundary test cases (nulls, empty arrays, edge cases, etc.).
