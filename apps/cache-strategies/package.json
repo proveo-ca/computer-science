@@ -1,0 +1,17 @@
+{
+  "name": "@proveo/cs-cache-strategies",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "cache-strategies:test": "bun test *.spec.ts"
+  },
+  "author": "Roberto von Schoettler <rschoettler@proveo.ca>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@proveo/cs-algorithms": "workspace:*",
+    "@proveo/cs-datatypes": "workspace:*"
+  }
+}

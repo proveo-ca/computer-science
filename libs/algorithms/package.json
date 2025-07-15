@@ -1,0 +1,16 @@
+{
+  "name": "@proveo/cs-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "algorithms:test": "bun test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@proveo/cs-datatypes": "workspace:*"
+  }
+}

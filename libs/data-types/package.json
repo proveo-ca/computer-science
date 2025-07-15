@@ -1,0 +1,13 @@
+{
+  "name": "@proveo/cs-datatypes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "datatypes:test": "bun test **/*.spec.ts"
+  },
+  "keywords": [],
+  "author": "Roberto von Schoettler <rschoettler@proveo.ca>",
+  "license": "UNLICENSED"
+}

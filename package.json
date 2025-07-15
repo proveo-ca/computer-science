@@ -1,21 +1,27 @@
 {
-  "name": "algorithms",
-  "module": "index.ts",
-  "type": "module",
-  "keywords": [],
-  "author": "Roberto von Schoettler <rschoettler@proveo.ca>",
+  "name": "@proveo/cs",
+  "version": "0.0.0",
   "license": "UNLICENSED",
+  "scripts": {},
+  "private": true,
   "devDependencies": {
-    "@types/jest": "^29.2.0",
+    "@monodon/rust": "^2.3.0",
+    "@nx-go/nx-go": "^3.3.1",
+    "@nx/js": "21.2.3",
+    "@nxlv/python": "^21.0.3",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
     "@types/node": "^18.11.5",
-    "bun-types": "^0.1.0",
-    "pnpm": "^7.14.0",
-    "standard": "^17.0.0",
-    "typescript": "^4.8.4"
+    "bun-types": "^1.2.19",
+    "nx": "21.2.3",
+    "prettier": "^2.6.2",
+    "tslib": "^2.3.0",
+    "typescript": "~5.8.2"
   },
-  "scripts": {
-    "lint": "standard '**/*.ts'",
-    "test": "bun test **/*.spec.ts"
-  },
-  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

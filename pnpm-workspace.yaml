@@ -1,4 +1,3 @@
 packages:
-  - "data-types"
-  - "algorithms"
-  - "caches"
+  - "apps/*"
+  - "libs/*"
