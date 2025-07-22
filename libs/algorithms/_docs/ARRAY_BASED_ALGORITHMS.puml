@@ -1,0 +1,48 @@
+```plantuml
+@startuml
+!includeurl https://raw.githubusercontent.com/proveo-ca/identity/refs/heads/main/proveo.iuml
+
+title  "Array Based Algorithms"
+
+/' ─────────────────  foundational containers  ───────────────── '/
+
+frame "Data Types" {
+    class Array
+    class String
+    class Stack
+    class Deque
+    class Map
+    class Set
+}
+
+/' ─────────────────  algorithm families  ───────────────────── '/
+frame "Array Based Algorithms" {
+    () "<Array Processing>" as array_processing
+    () "<Backtracking>" as backtracking
+    () "<Sliding Window>" as sliding_window
+    () "<String Processing>" as string_processing
+    () "<Two Pointer>" as two_pointer
+    () "<Two Pointer Greedy>" as two_pointer_greedy
+}
+
+/' ───────────────  algorithms -> data‑types  ─────────────── '/
+array_processing     <-[PATH_COMMON]up- Array
+backtracking         <-[PATH_COMMON]up- Array
+two_pointer          <-[PATH_COMMON]up- Array
+string_processing    <-[PATH_COMMON]up- Array
+string_processing    <.up. Map
+string_processing <.up. Stack : parentheses decode
+sliding_window       <.up. Set : unique‑char variant
+backtracking         <-up- Stack
+sliding_window       <.up. Deque                : window max/min
+sliding_window       <.up. Map                  : freq-count variant
+two_pointer          <-up- String
+
+/' ───────────────  conceptual links between techniques  ─────────────── '/
+sliding_window       ..up|> two_pointer         : builds on pointer ops
+two_pointer_greedy   ..up|> two_pointer         : greedy variant
+sliding_window       ..up> two_pointer_greedy   : "shrink/grow strategy"
+string_processing    ..> sliding_window    : anagram window
+
+@enduml
+```

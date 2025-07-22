@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "algorithms:test": "bun test"
+    "algorithms:test": "bun test **/*.spec.ts"
   },
   "keywords": [],
   "author": "",

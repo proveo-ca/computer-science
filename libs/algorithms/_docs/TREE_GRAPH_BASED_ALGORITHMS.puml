@@ -1,0 +1,80 @@
+```plantuml
+@startuml
+!includeurl https://raw.githubusercontent.com/proveo-ca/identity/refs/heads/main/proveo.iuml
+
+title  "Tree/Graph Based Algorithms"
+
+frame "Linear Data Types" {
+    class Array
+    class Map  <<hash-table>>
+    class Stack
+}
+
+frame "Non-Linear Data Types" {
+    class Graph
+    abstract class Heap
+    class UnionFind
+    class Queue
+}
+
+frame "Core Paradigms" as CORE {
+  () "<Binary Search>"           as binary_search
+  () "<Divide & Conquer>"        as divide_and_conquer
+  () "<Dynamic Programming>"     as dynamic_programming
+  () "<Jump Search>"              as jump_search
+}
+
+frame "Tree/Graph Based Algorithms" as TGA {
+  () "<Dijkstra>"                 as dijkstra
+  () "<Graphing>"                 as graphing
+  () "<Priority>"                 as priority
+  () "<Pathing>"                  as pathing
+  () "<Sorting>"                  as sorting
+  () "<Topological Sort>"         as topo_sort
+}
+
+frame "Specialised Algorithms" {
+  () "<Math: Combinatorics>"           as combinatorics
+  () "<Math: Geometry (Complex)>" as math_geometry
+  () "<Simulation / Design>"     as simulation_design
+  () "<Constructive>"            as constructive_algos
+}
+
+/' ───────────────  algorithms -> data‑types  ─────────────── '/
+combinatorics        <-[PATH_COMMON,COLOR_MAIN]up- Array
+constructive_algos   <-[PATH_COMMON,COLOR_MAIN]up- Array
+divide_and_conquer   <.[COLOR_MAIN]up.. Stack : recursion stack
+divide_and_conquer	 <.[COLOR_ACCENT]up.. UnionFind  : "DSU-on-tree / offline queries"
+dynamic_programming  <-[COLOR_MAIN]up- Map
+graphing             <-[COLOR_ALT]up- Graph
+graphing             <-[COLOR_ACCENT]up-- UnionFind : "connected components"
+jump_search          <-[PATH_COMMON,COLOR_MAIN]up-- Array
+pathing              <-[COLOR_ALT]up--- Graph
+pathing              <.[COLOR_ALT]up... Queue  : " BFS / shortest path"
+priority             <-[COLOR_ALT]up--- Heap
+priority             <.[COLOR_ACCENT]up... UnionFind   : " Kruskal’s MST"
+simulation_design    <-[COLOR_MAIN]up- Map
+sorting              <-[PATH_COMMON,COLOR_MAIN]up-- Array
+sorting              <.[COLOR_ALT]up... Heap   : heapsort branch
+sorting              <.[COLOR_ACCENT]up... UnionFind   : "Edge sorting for Kruskal"
+topo_sort            <.[COLOR_ALT]up... Queue : Kahn's sort algo
+topo_sort            <.[COLOR_MAIN]up... Stack : DFS sort variant
+
+/' ───────────────  conceptual links between techniques  ─────────────── '/
+binary_search        ..> math_geometry        : " parametric search"
+constructive_algos   ..> simulation_design
+divide_and_conquer   ..> binary_search        : " subdivide search space"
+divide_and_conquer   ..> sorting              : mergesort/quicksort
+divide_and_conquer   ..> dynamic_programming  : overlap + memo
+jump_search          ..> binary_search        : “skip then seek”
+pathing              ..> graphing             : path finding algos
+graphing             ..> math_geometry        : "geometry graphs (Voronoi, Delaunay)"
+graphing             ..> dijkstra
+pathing              <.> dijkstra
+priority             ..> dijkstra
+sorting              ..> topo_sort
+topo_sort            ..> graphing
+
+CORE -[hidden]-> TGA
+@enduml
+```

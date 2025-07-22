@@ -55,15 +55,15 @@ importers:
         version: link:../../libs/algorithms
       '@proveo/cs-datatypes':
         specifier: workspace:*
-        version: link:../../libs/data-types
+        version: link:../../libs/datatypes
 
   libs/algorithms:
     dependencies:
       '@proveo/cs-datatypes':
         specifier: workspace:*
-        version: link:../data-types
+        version: link:../datatypes
 
-  libs/data-types: {}
+  libs/datatypes: {}
 
 packages:
 

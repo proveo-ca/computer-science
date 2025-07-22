@@ -1,0 +1,83 @@
+```plantuml
+@startuml
+!includeurl https://raw.githubusercontent.com/proveo-ca/identity/refs/heads/main/proveo.iuml
+
+title Cache strategies <-> algorithms
+
+() array_processing
+() hashing
+() priority
+() sliding_window
+
+note top of array_processing : "linked‑list, queue, deque"
+note top of hashing          : hash‑table / map
+note top of priority         : heap / top‑K helpers
+note top of sliding_window   : fixed window deque + freq maps
+
+/'  CACHE REPLACEMENT POLICIES  ---------------------------------- '/
+
+frame "Classic Cache Strategies" as CLASSIC {
+  class FIFO
+  class LRU
+  class MRU
+  class ARC
+  class LFU
+  class RandomReplace
+}
+frame "Modern Cache Strategies" as MODERN {
+  class CLOCK
+  class CLOCK_Pro
+  class TwoQ
+  class LIRS
+  class TinyLFU
+  class GDSF
+}
+
+FIFO           : "ring‑buffer queue"
+LRU            : "DLL + HashMap (recency)"
+MRU            : "DLL + HashMap (most‑recent)"
+ARC            : "2 LRUs + ghost sets"
+LFU            : "Hash buckets + min‑heap"
+RandomReplace  : "uniform random victim"
+CLOCK          : "second‑chance ring"
+CLOCK_Pro      : "multi‑clock hot/cold"
+TwoQ           : "A1‑in & Am LRUs"
+LIRS           : "stack S + queue Q"
+TinyLFU        : "CM‑sketch + window LRU"
+GDSF           : "cost/size min‑heap"
+
+/' -------- strategy → folder dependencies  ---------------------- '/
+'— Queue / Ring‑buffer based
+FIFO       <.[COLOR_MAIN]up. array_processing
+CLOCK      <.[COLOR_MAIN]up. array_processing
+CLOCK_Pro  <.[COLOR_MAIN]up. array_processing
+
+'— List + Map based (recency or hybrid)
+LRU        <.[COLOR_MAIN]up. array_processing
+LRU        <.[COLOR_ALT]up. hashing
+MRU        <.[COLOR_MAIN]up. array_processing
+MRU        <.[COLOR_ALT]up. hashing
+TwoQ       <.[COLOR_MAIN]up. array_processing
+TwoQ       <.[COLOR_ALT]up. hashing
+ARC        <.[COLOR_MAIN]up. array_processing
+ARC        <.[COLOR_ALT]up. hashing
+LIRS       <.[COLOR_MAIN]up. array_processing
+LIRS       <.[COLOR_ALT]up. hashing
+
+'— Frequency / Heap based
+LFU        <.[COLOR_ALT]up. hashing
+LFU        <.[COLOR_ACCENT]up. priority
+TinyLFU    <.[COLOR_ALT]up. hashing
+TinyLFU    <.[COLOR_ACCENT]up. priority
+GDSF       <.[COLOR_ALT]up. hashing
+GDSF       <.[COLOR_ACCENT]up. priority
+
+'— Random baseline
+RandomReplace <.[COLOR_ALT]up. hashing
+
+'— TinyLFU also uses a small Window‑LRU
+TinyLFU <.up.. sliding_window : "admission window"
+
+CLASSIC -[hidden]down-----> MODERN
+@enduml
+```
