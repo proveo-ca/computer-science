@@ -1,5 +1,11 @@
 # Algorithms
 
+![](./_docs/PRIMITIVES_BASED_ALGORITHMS.svg)
+
+![](./_docs/ARRAY_BASED_ALGORITHMS.svg)
+
+![](./_docs/TREE_GRAPH_BASED_ALGORITHMS.svg)
+
 ## Hashing
 Hashing is a technique used to map data of arbitrary size to fixed-size values, called `hash` values or `hash codes`, using a `hash` function. It is widely used in computer science for quick data retrieval and efficient storage.
 

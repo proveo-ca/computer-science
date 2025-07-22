@@ -1,0 +1,42 @@
+```plantuml
+@startuml
+!includeurl https://raw.githubusercontent.com/proveo-ca/identity/refs/heads/main/proveo.iuml
+
+title  Algorithms<-> Data-Types "Primitives Based Algorithms""
+
+
+frame "Data Types" {
+    class Array
+    class String
+    class Stack
+    class Map
+    class Set
+    class IntegerBits
+}
+
+note top of Map: "hash‑table / dict"
+note top of IntegerBits: "bit vectors / word ops"
+
+frame "Primitives Based Algorithms" {
+  () "<Bit Manipulation>" as bit_manipulation
+  () "<Buffers>" as buffers
+  () "<Hashing>" as hashing
+  () "<Math: Geometry (Simple)>" as math_geometry
+  () "<Math: Number Theory>" as math_number_theory
+  () "<Regex>" as regex
+}
+
+/' ───────────────  algorithms -> data‑types  ─────────────── '/
+bit_manipulation     <-up- IntegerBits
+buffers              <-[PATH_COMMON]up- Array
+buffers              <-up- String
+hashing              <-up- Map
+hashing              <-up- Set
+math_geometry        <-[PATH_COMMON]up- Array
+math_number_theory   <-[PATH_COMMON]up- Array
+math_number_theory   <-up- IntegerBits
+regex                <-up- String
+regex                <.up. Stack                : " balanced-brackets"
+
+@enduml
+```

@@ -1,4 +1,4 @@
-# Proveo's Algorithms
+# Proveo's Data Structures / Abstract Data Types
 
 > See the [primer](./PRIMER.md) for more.
 
