@@ -41,6 +41,4 @@ jobs:
 
       ## 5. generate PlantUML docs (SVG)
       - name: Render PlantUML
-        uses: holowinski/plantuml-github-action@main
-        with:
-          args: "-tsvg libs/**/_docs/*.puml"
+        run: pnpm nx run-many --target=docs --all
