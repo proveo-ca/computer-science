@@ -4,13 +4,21 @@
   "description": "",
   "main": "index.js",
   "private": true,
+  "type": "module",
   "scripts": {
-    "algorithms:test": "bun test **/*.spec.ts"
+    "algorithms:typecheck": "tsc --noEmit",
+    "algorithms:test": "bun test **/*.spec.ts",
+    "algorithms:lint": "npm run algorithms:typecheck && prettier **/*.ts --write",
+    "algorithms:build": "nx build"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
     "@proveo/cs-datatypes": "workspace:*"
+  },
+  "devDependencies": {
+    "glob": "^11.0.3",
+    "vite": "^5.0.0"
   }
 }

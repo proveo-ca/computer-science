@@ -6,7 +6,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "cache-strategies:test": "bun test *.spec.ts"
+    "cache-strategies:test": "bun test **/*.spec.ts",
+    "cache-strategies:lint": "prettier **/*.ts --write"
   },
   "author": "Roberto von Schoettler <rschoettler@proveo.ca>",
   "license": "UNLICENSED",

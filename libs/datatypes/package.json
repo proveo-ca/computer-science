@@ -2,10 +2,18 @@
   "name": "@proveo/cs-datatypes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "private": true,
+  "type": "module",
   "scripts": {
-    "datatypes:test": "bun test **/*.spec.ts"
+    "datatypes:build": "nx build",
+    "datatypes:typecheck": "tsc --noEmit",
+    "datatypes:test": "bun test **/*.spec.ts",
+    "datatypes:lint": "npm run datatypes:typecheck && prettier **/*.ts --write"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0"
   },
   "keywords": [],
   "author": "Roberto von Schoettler <rschoettler@proveo.ca>",
