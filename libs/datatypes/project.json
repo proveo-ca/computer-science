@@ -3,9 +3,14 @@
   "projectType": "library",
   "root": "libs/datatypes",
   "sourceRoot": "libs/datatypes/src",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"],
+    "puml": ["{projectRoot}/_docs/**/*.puml"]
+  },
   "targets": {
     "docs": {
       "executor": "nx:run-commands",
+      "inputs": ["puml"],
       "options": {
         "command": "docker run --rm -v $(pwd)/libs/datatypes/_docs:/workspace ghcr.io/plantuml/plantuml -tsvg /workspace/*.puml",
         "parallel": false
