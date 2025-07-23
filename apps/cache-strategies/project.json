@@ -1,0 +1,21 @@
+{
+  "name": "@proveo/cs-cache-strategies",
+  "projectType": "application",
+  "root": "apps/cache-strategies",
+  "sourceRoot": "apps/cache-strategies/src",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"],
+    "puml": ["{projectRoot}/_docs/**/*.puml"]
+  },
+  "targets": {
+    "docs": {
+      "executor": "nx:run-commands",
+      "inputs": ["puml"],
+      "options": {
+        "command": "docker run --rm -v $(pwd)/apps/cache-strategies/_docs:/workspace ghcr.io/plantuml/plantuml -tsvg /workspace/*.puml",
+        "parallel": false
+      },
+      "outputs": ["{projectRoot}/_docs"]
+    }
+  }
+}

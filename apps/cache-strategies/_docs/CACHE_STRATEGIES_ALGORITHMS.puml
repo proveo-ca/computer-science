@@ -9,8 +9,8 @@ title Cache strategies <-> algorithms
 () priority
 () sliding_window
 
-note top of array_processing : "linked‑list, queue, deque"
-note top of hashing          : hash‑table / map
+note top of array_processing : "linked-list, queue, deque"
+note top of hashing          : hash-table / map
 note top of priority         : heap / top‑K helpers
 note top of sliding_window   : fixed window deque + freq maps
 
@@ -33,17 +33,17 @@ frame "Modern Cache Strategies" as MODERN {
   class GDSF
 }
 
-FIFO           : "ring‑buffer queue"
+FIFO           : "ring-buffer queue"
 LRU            : "DLL + HashMap (recency)"
 MRU            : "DLL + HashMap (most‑recent)"
 ARC            : "2 LRUs + ghost sets"
 LFU            : "Hash buckets + min‑heap"
 RandomReplace  : "uniform random victim"
-CLOCK          : "second‑chance ring"
-CLOCK_Pro      : "multi‑clock hot/cold"
-TwoQ           : "A1‑in & Am LRUs"
+CLOCK          : "second-chance ring"
+CLOCK_Pro      : "multi-clock hot/cold"
+TwoQ           : "A1-in & Am LRUs"
 LIRS           : "stack S + queue Q"
-TinyLFU        : "CM‑sketch + window LRU"
+TinyLFU        : "CM-sketch + window LRU"
 GDSF           : "cost/size min‑heap"
 
 /' -------- strategy → folder dependencies  ---------------------- '/
