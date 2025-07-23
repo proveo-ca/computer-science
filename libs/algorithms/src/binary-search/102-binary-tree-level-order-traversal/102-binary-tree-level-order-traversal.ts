@@ -1,19 +1,19 @@
-import { Queue } from 'data-types/queue'
-import { BinaryTreeNode } from 'data-types/binary-tree-node'
+import { Queue } from '@proveo/cs-datatypes'
+import { BinaryTreeNode } from '@proveo/cs-datatypes'
 
 // For a breadth search iterations, we'll use 2 queues.
 // The current queue describes the current level, and we'll be enqueuing children
 // Onto the next queue, until the current level is empty. We'll swap the queues references
 // To iterate, until the current queue is empty:
-export const breadthSearchIterator = function (root: BinaryTreeNode) {
+export const breadthSearchIterator = function (root: BinaryTreeNode<any> | null) {
   let treeString = ''
 
   if (!root || (!root.data && !root.left && !root.right)) {
-    treeString += 'null'
+    treeString += 'undefined'
   } else {
     let queues = [
-      new Queue<BinaryTreeNode>(),
-      new Queue<BinaryTreeNode>(),
+      new Queue<BinaryTreeNode<any>>(),
+      new Queue<BinaryTreeNode<any>>(),
     ]
 
     let currentQueue = queues[0]
@@ -22,7 +22,7 @@ export const breadthSearchIterator = function (root: BinaryTreeNode) {
 
     currentQueue.enqueue(root)
     // Printing nodes in level-order until the current queue remains empty
-    while (currentQueue._items.length > 0) {
+    while (currentQueue.size() > 0) {
       let currentNode = currentQueue.dequeue()
       treeString += String(currentNode.data)
 
@@ -37,9 +37,9 @@ export const breadthSearchIterator = function (root: BinaryTreeNode) {
 
       // When the current queue is empty, we increase the level, print a new line
       // and swap the current and next queues
-      if (currentQueue._items.length == 0) {
+      if (currentQueue.size() == 0) {
         ++levelNumber
-        if (nextQueue._items.length != 0) {
+        if (nextQueue.size() != 0) {
           treeString += ' : '
         }
         currentQueue = queues[levelNumber % 2]

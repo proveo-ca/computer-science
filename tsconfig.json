@@ -2,9 +2,19 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": [],
+  "references": [
+    {
+      "path": "./apps/cache-strategies"
+    },
+    {
+      "path": "./libs/algorithms"
+    },
+    {
+      "path": "./libs/datatypes"
+    }
+  ],
   "compilerOptions": {
     "types": ["node", "bun-types", "jest"],
-    "exclude": ["node_modules/**/*", "dist/**/*"],
+    "exclude": ["node_modules/**/*", "dist/**/*"]
   }
 }

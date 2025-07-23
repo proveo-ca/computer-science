@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'bun:test'
-import { BinaryTree } from 'data-types/index.js'
-import { breadthSearchIterator } from './102-binary-tree-level-order-traversal'
+import { BinaryTree } from '@proveo/cs-datatypes'
+import { breadthSearchIterator } from './102-binary-tree-level-order-traversal.js'
 
 describe('Breadth Search Iterator (Level-order Traversal) tests', () => {
-  it('should handle a null tree', () => {
-    const tree = new BinaryTree(null)
+  it('should handle an undefined tree', () => {
+    const tree = new BinaryTree(undefined)
 
-    expect(breadthSearchIterator(tree.root)).toBe('null')
+    expect(breadthSearchIterator(tree.root)).toBe('undefined')
   })
   it('should handle a single node binary tree: ', () => {
     const tree = new BinaryTree([100])

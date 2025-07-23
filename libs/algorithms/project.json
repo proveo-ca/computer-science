@@ -1,0 +1,16 @@
+{
+  "name": "@proveo/cs-algorithms",
+  "projectType": "library",
+  "root": "libs/algorithms",
+  "sourceRoot": "libs/algorithms/src",
+  "targets": {
+    "docs": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker run --rm -v $(pwd)/libs/algorithms/_docs:/workspace ghcr.io/plantuml/plantuml -tsvg /workspace/*.puml",
+        "parallel": false
+      },
+      "outputs": ["{projectRoot}/_docs"]
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import { LinkedListNode } from 'libs/data-types/doubly-linked-list-node'
-import { LinkedList } from 'data-types/linked-list'
+import { LinkedListNode } from '@proveo/cs-datatypes'
+import { LinkedList } from '@proveo/cs-datatypes'
 
-function reverseHead (head) {
+function reverseHead (head: LinkedListNode<any>) {
   if (!head || !head.next) {
     return head
   }
@@ -14,13 +14,13 @@ function reverseHead (head) {
     reversedHead.next = tail
 
     tail = reversedHead
-    currentNode = currentNode.next
+    currentNode = currentNode.next!
   }
 
   return reversedHead
 }
 
-const reverse = function (head) {
+const reverse = function (head: LinkedListNode<any>) {
   const originalList = new LinkedList()
   originalList.head = head
 

@@ -1,13 +1,13 @@
-import { Stack } from 'data-types/stack'
-import { BinaryTreeNode } from 'data-types/binary-tree-node'
+import { Stack } from '@proveo/cs-datatypes'
+import { BinaryTreeNode } from '@proveo/cs-datatypes'
 
 // Depth search first:
 // A stack will be filled from the root to the leftmost node, then at every node popped out
 // we check if it has a right node, and stack all the way to its leftmost node
 class InOrderIterator {
-  depthStack: Stack
+  depthStack: Stack<any>
 
-  constructor(root: BinaryTreeNode) {
+  constructor(root: BinaryTreeNode<any>) {
     this.depthStack = new Stack()
     // Assuming that when iterator is initialized
     // it is always at the first element of tree in its in-order
@@ -15,16 +15,16 @@ class InOrderIterator {
   }
 
   // Function to populate the stack from the root till the left-most node
-  populateStack(root) {
+  populateStack(root: BinaryTreeNode<any>) {
     while (root) {
       this.depthStack.push(root)
-      root = root.left
+      root = root.left!
     }
   }
 
   // This function checks if there is a node next in line inside the iterator
   hasNext() {
-    if (!this.depthStack || this.depthStack._items.length === 0) {
+    if (!this.depthStack || this.depthStack.size() === 0) {
       return false
     } else {
       return true
@@ -34,7 +34,7 @@ class InOrderIterator {
   // getNext returns null if there are no more elements in tree
   getNext() {
     // Return null if there's no succeeding node to return
-    if (!this.depthStack || this.depthStack._items.length === 0) {
+    if (!this.depthStack || this.depthStack.size() === 0) {
       return null
     }
 
@@ -51,9 +51,13 @@ class InOrderIterator {
 
 // This function returns the in-order list of nodes using the hasNext() and
 // getNext() methods
-export const depthSearchIterator = function (root: BinaryTreeNode): string {
-  const iterator = new InOrderIterator(root)
+export const depthSearchIterator = function (root: BinaryTreeNode<any> | null): string {
   let treeString = ''
+
+  if (!root || (!root.data && !root.left && !root.right)) {
+    treeString += 'undefined'
+  }
+  const iterator = new InOrderIterator(root!)
   while (iterator.hasNext()) {
     const currentTreeNode = iterator.getNext()
     if (iterator.hasNext()) {
@@ -63,7 +67,7 @@ export const depthSearchIterator = function (root: BinaryTreeNode): string {
     }
   }
   if (treeString === '') {
-    treeString = 'null'
+    treeString = 'undefined'
   }
   return treeString
 }

@@ -1,6 +1,6 @@
-import { BinaryTreeNode } from 'data-types/binary-tree-node'
+import { BinaryTreeNode } from '@proveo/cs-datatypes'
 
-function swapNodes(node: BinaryTreeNode) {
+function swapNodes(node: BinaryTreeNode<any>) {
   // Base case: end recursive call if current node is null
   if (!node) {
     return
@@ -22,7 +22,7 @@ function swapNodes(node: BinaryTreeNode) {
 
 // Don't need an explicit stack to do an in-order traversal search.
 // JS' call stack will do.
-export const mirrorBinaryTree = function (root: BinaryTreeNode): BinaryTreeNode {
+export const mirrorBinaryTree = function (root: BinaryTreeNode<any>): BinaryTreeNode<any> {
   swapNodes(root)
 
   return root

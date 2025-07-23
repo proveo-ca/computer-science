@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "datatypes:build": "vite build",
+    "datatypes:build": "nx build",
     "datatypes:typecheck": "tsc --noEmit",
     "datatypes:test": "bun test **/*.spec.ts",
     "datatypes:lint": "npm run datatypes:typecheck && prettier **/*.ts --write"

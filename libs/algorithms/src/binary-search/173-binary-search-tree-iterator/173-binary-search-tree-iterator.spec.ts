@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'bun:test'
-import { BinaryTree } from 'data-types/binary-tree'
-import { depthSearchIterator } from './173-binary-search-tree-iterator'
+import { BinaryTree } from '@proveo/cs-datatypes'
+import { depthSearchIterator } from './173-binary-search-tree-iterator.js'
 
 describe('Depth Search Iterator (In-Order Trasversal) tests', () => {
-  it('should handle null values', () => {
-    const tree = new BinaryTree(null)
+  it('should handle undefined values', () => {
+    const tree = new BinaryTree(undefined)
 
-    expect(depthSearchIterator(tree.root)).toBe('null')
+    expect(depthSearchIterator(tree.root)).toBe('undefined')
   })
   it('should handle single nodes', () => {
     const tree = new BinaryTree([100])
