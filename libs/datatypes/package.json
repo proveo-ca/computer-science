@@ -5,8 +5,13 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "build": "vite build",
     "datatypes:test": "bun test **/*.spec.ts",
     "datatypes:lint": "prettier **/*.ts --write"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0"
   },
   "keywords": [],
   "author": "Roberto von Schoettler <rschoettler@proveo.ca>",
