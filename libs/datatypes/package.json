@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "vite build",
+    "datatypes:build": "vite build",
     "datatypes:test": "bun test **/*.spec.ts",
     "datatypes:lint": "prettier **/*.ts --write"
   },
