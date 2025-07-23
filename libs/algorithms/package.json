@@ -5,8 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "algorithms:typecheck": "tsc --noEmit",
     "algorithms:test": "bun test **/*.spec.ts",
-    "datatypes:lint": "prettier **/*.ts --write"
+    "algorithms:lint": "npm run algorithms:typecheck && prettier **/*.ts --write"
   },
   "keywords": [],
   "author": "",
