@@ -8,6 +8,9 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
   ],
+  resolve: {
+    extensions: ['.ts', '.js', '.json'],
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'index.ts'),
@@ -17,6 +20,9 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [],
+      output: {
+        preserveModules: false,
+      },
     },
   },
 });
