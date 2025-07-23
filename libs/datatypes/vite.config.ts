@@ -13,7 +13,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'index.ts'),
       name: 'CSDatatypes',
       formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
+      fileName: (format: string) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
     },
     rollupOptions: {
       external: [],
