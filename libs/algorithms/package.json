@@ -14,5 +14,9 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@proveo/cs-datatypes": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0"
   }
 }
