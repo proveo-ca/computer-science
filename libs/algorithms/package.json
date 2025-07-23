@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "algorithms:test": "bun test **/*.spec.ts"
+    "algorithms:test": "bun test **/*.spec.ts",
+    "datatypes:lint": "prettier **/*.ts --write"
   },
   "keywords": [],
   "author": "",

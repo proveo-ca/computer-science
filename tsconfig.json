@@ -3,10 +3,8 @@
   "compileOnSave": false,
   "files": [],
   "references": [],
-  // "bun-types" is the important part
   "compilerOptions": {
     "types": ["node", "bun-types", "jest"],
     "exclude": ["node_modules/**/*", "dist/**/*"],
-    "allowJs": true
   }
 }

@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "executor": "nx:run-commands",
+    "options": {
+      "command": "docker run --rm -v $(pwd):/workspace ghcr.io/plantuml/plantuml -tsvg libs/datatypes/**/_docs/*.puml",
+      "parallel": false
+    },
+    "outputs": ["{projectRoot}/_docs"]
+  }
+}
