@@ -7,7 +7,8 @@
   "scripts": {
     "algorithms:typecheck": "tsc --noEmit",
     "algorithms:test": "bun test **/*.spec.ts",
-    "algorithms:lint": "npm run algorithms:typecheck && prettier **/*.ts --write"
+    "algorithms:lint": "npm run algorithms:typecheck && prettier **/*.ts --write",
+    "algorithms:build": "vite build"
   },
   "keywords": [],
   "author": "",
